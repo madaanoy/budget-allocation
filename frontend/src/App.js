@@ -13,10 +13,13 @@ function App() {
     <center>
       <div>
         <h1>Budget Allocation System</h1>
-        <p>{message}</p>
+        
+        <form method="POST">
+          <button id="createBudget" type="submit"> Create a Budget </button>
+        </form>
+
       </div>
     </center>
-
   );
 }
 
