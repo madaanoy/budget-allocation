@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const budgetSchema = new Schema ({
+const budgetSchema = new Schema({
    title: {
       type: String,
       required: true,
@@ -22,7 +22,7 @@ const budgetSchema = new Schema ({
       type: Number,
       required: true,
    },
-timestamps: true});
+}, { timestamps: true });
 
 const Budget = mongoose.model('Budget', budgetSchema);
 module.exports = Budget;
