@@ -20,30 +20,46 @@ function Home() {
   }, []);
 
   return (
-    <center>
-      <div className="container">
-        <h1>Budget Allocation System</h1>
+    <div className="container-1">
+      <div className="header-row">
+        <div className="logo-title">
+          <img src="budget.png" alt="Budget Logo" className="logo" />
+          <h1>Budget Allocation System</h1>
+        </div>
         <Link to="/create">
-          <button className="create-btn">Create New Budget</button>
+          <button className="create-btn">Create Budget</button>
         </Link>
-        
-        <div className="budget-list">
-          {budgets.map((budget) => (
-            <div key={budget._id} className="budget-card">
-              <div className="budget-info">
-                <h3>{budget.title}</h3>
-                <p>MOOE: ₱{budget.MOOE.toLocaleString()}</p>
-                <p>Capital Outlay: ₱{budget.CO.toLocaleString()}</p>
-                <p>Personal Expenses: ₱{budget.PE.toLocaleString()}</p>
-              </div>
+      </div>
+
+      <div className="budget-list">
+        {budgets.map((budget) => (
+          <div key={budget._id} className="budget-card">
+            <div className="budget-header">
+              <h3>{budget.title}</h3>
               <div className={`status ${budget.budgetStatus ? "approved" : "finished"}`}>
-                {budget.budgetStatus ? "APPROVED" : "FINISHED"}
+                {budget.budgetStatus ? "Approved" : "Pending"}
               </div>
             </div>
-          ))}
-        </div>
+            <div className="budget-info">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>MOOE</td>
+                    <td>₱ {budget.MOOE.toLocaleString()}</td>
+                  </tr><tr>
+                    <td>Capital Outlay</td>
+                    <td>₱ {budget.CO.toLocaleString()}</td>
+                  </tr><tr>
+                    <td>Personal Expenses</td>
+                    <td>₱ {budget.PE.toLocaleString()}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ))}
       </div>
-    </center>
+    </div>
   );
 }
 
