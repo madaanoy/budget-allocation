@@ -17,6 +17,18 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 // Routes
 app.use('/api', budgetRouter);
 
+const path = require("path");
+
+// Serve static files from React build
+const clientBuildPath = path.join(__dirname, "client", "build");
+app.use(express.static(clientBuildPath));
+
+// For any routes not handled by Express (e.g. React Router paths)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(clientBuildPath, "index.html"));
+});
+
+
 app.get("/", (req, res) => {
     res.send("API is running...");
 });
