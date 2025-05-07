@@ -16,7 +16,7 @@ const CreateBudget = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://budget-allocation.onrender.com/', formData, {
+      await axios.post('https://budget-allocation.onrender.com/budgets', formData, {
   headers: {
     'Content-Type': 'application/json'
   }
