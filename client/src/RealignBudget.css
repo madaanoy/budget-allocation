@@ -1,0 +1,103 @@
+.realign-cont {
+    max-width: 60%;
+    margin: 0 auto 20px auto;
+}
+
+.realign-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.realign-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 35px;
+    font-weight: 800;
+    color: #30353c;
+    margin: 0px;
+}
+
+.realignment-form {
+    margin: 2rem 0 0 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.form-row.single-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* lahat ito sa realignment form lng */
+.realign-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 300px;
+    min-width: 200px;
+}
+
+.realign-form label {
+    font-size: 20px;
+    font-weight: 400;
+    color: #30353c;
+    margin-bottom: 0.5rem;
+}
+
+.realign-form input,
+.realign-form select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.realign-form select {
+    padding-right: 2.5rem;
+    appearance: none;
+    background: url("data:image/svg+xml;utf8,<svg fill='%23666' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>") no-repeat right 0.75rem center;
+    background-color: #fff;
+    background-size: 1rem;
+}
+
+.realign-form select:invalid {
+    color: #a9a9a9;
+}
+
+.realign-form input:focus,
+.realign-form select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.confirm-btn-cont {
+    text-align: center;
+}
+
+.confirm-btn {
+    background-color: #5cb85c;
+    color: #eff2fa;
+    padding: 15px 25px;
+    margin-top: 20px;
+    border: 2px solid #5cb85c;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 15px;
+    transition: all ease-in-out 0.2s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.confirm-btn:hover {
+    background-color: #2a8243;
+}

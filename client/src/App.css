@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
   background-color: #eff2fa;
   font-family: 'Inter', sans-serif;
+  font-size: 15px;
 }
 
-.container-1 {
+.home-cont {
   max-width: 60%;
   margin: 0 auto 20px auto;
 }
@@ -29,28 +31,33 @@ body {
 }
 
 h1 {
+  font-family: 'Inter', sans-serif;
   font-size: 50px;
   font-weight: 800;
   color: #30353c;
 }
 
 .create-btn {
-  background-color: #5cb85c;
+  background-color: #00acc3;
   color: #eff2fa;
   padding: 15px 25px;
-  border: 2px solid #5cb85c;
+  border: 2px solid #00acc3;
   border-radius: 15px;
   cursor: pointer;
   font-weight: 400;
   font-size: 15px;
+  text-decoration: none;
   transition: all ease-in-out 0.2s;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  width: 200px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .create-btn:hover {
-  background-color: #2a8243;
+  background-color: #00838e;
 }
 
 .budget-list {
@@ -61,7 +68,7 @@ h1 {
   background-color: white;
   border-radius: 15px;
   padding: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   box-shadow: 0.3em 0.3em 0.7em #00000015;
@@ -74,51 +81,63 @@ h1 {
   align-items: center;
 }
 
-.budget-header h3 {
-  font-size: 25px;
-  font-weight: 700;
+.budget-header a {
+  text-decoration: none;
+}
+
+.budget-header a h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
   color: #30353c;
   margin: 0px;
+  transition: color 0.2s ease;
+}
+
+.budget-header a h3:hover {
+  color: #00acc3;
 }
 
 .budget-info table {
+  font-family: "Space Mono", monospace;
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
 }
 
 .budget-info td {
+  font-size: 15px;
+  font-weight: 400;
+  color: #30353c;
   width: 50%;
-  border: 1px solid #ccc;
+  border: 1px solid #30353c;
   padding: 8px 12px;
   word-wrap: break-word;
 }
 
 .budget-info tr:not(:last-child) td {
-  border-bottom: 1px solid #ccc;
-}
-
-.budget-info td {
-  font-size: 15px;
-  font-weight: 400;
-  color: #30353c;
+  border-bottom: 1px solid #30353c;
 }
 
 .status {
-  display: inline-block;
-  width: 120px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 2px 0.5rem;
+  border: none;
+  border-radius: 0.375rem;
   text-align: center;
-  padding: 8px 0;
-  border-radius: 20px;
-  font-size: 0.9em;
+  width: 120px;
+  display: inline-block;
 }
 
-.approved {
-  background: #5cb85c;
-  color: #eff2fa;
+.green {
+  background-color: rgba(34, 197, 94, 0.10);
+  color: rgb(34 197 94);
+  border: 1px solid rgb(34 197 94);
 }
 
-.finished {
-  background: #f0ad4e;
-  color: #eff2fa;
+.yellow {
+  background-color: rgba(234, 179, 8, 0.10);
+  color: rgb(234 179 8);
+  border: 1px solid rgb(234 179 8);
 }
