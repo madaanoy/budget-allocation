@@ -8,12 +8,21 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors({
+//app.use(cors({
+//  origin: "https://budget-allocation-o58h.onrender.com",
+//  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//  allowedHeaders: ["Content-Type", "Authorization"],
+//  credentials: true
+//}));
+const corsOptions = {
   origin: "https://budget-allocation-o58h.onrender.com",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
-}));
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
