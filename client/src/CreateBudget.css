@@ -1,101 +1,173 @@
-.navigation-buttons {
-   margin-bottom: 2rem;
-   text-align: left;
- }
- 
- .back-button {
-   display: inline-flex;
-   align-items: center;
-   padding: 0.8rem 1.5rem;
-   background-color: #6c757d;
-   color: white;
-   border: none;
-   border-radius: 5px;
-   font-size: 1rem;
-   font-weight: 600;
-   cursor: pointer;
-   transition: all 0.3s ease;
-   text-decoration: none;
- }
- 
- .back-button:hover {
-   background-color: #5a6268;
-   transform: translateY(-1px);
- }
- 
- .back-button:active {
-   transform: translateY(0);
- }
- 
- .back-button > svg {
-   margin-right: 8px;
- }
+/* Headers */
+.create-cont {
+  max-width: 60%;
+  margin: 0 auto 20px auto;
+}
 
+.back-button {
+  background-color: #777777;
+  color: #eff2fa;
+  padding: 15px 25px;
+  border: 2px solid #777777;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all ease-in-out 0.2s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.back-button:hover {
+  background-color: #555555;
+}
+
+/* Form Container */
 .create-budget {
-   max-width: 500px;
-   margin: 2rem auto;
-   padding: 2rem;
-   background: #ffffff;
-   border-radius: 10px;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
- }
- 
- .create-budget h2 {
-   color: #2c3e50;
-   margin-bottom: 1.5rem;
- }
- 
- .create-budget form {
-   display: flex;
-   flex-direction: column;
-   gap: 1.2rem;
- }
- 
- .form-group {
-   display: flex;
-   flex-direction: column;
-   gap: 0.5rem;
- }
- 
- .form-group label {
-   font-weight: 600;
-   color: #34495e;
-   text-align: left;
- }
- 
- .form-group input {
-   padding: 0.8rem;
-   border: 2px solid #bdc3c7;
-   border-radius: 5px;
-   font-size: 1rem;
-   transition: border-color 0.3s ease;
- }
- 
- .form-group input:focus {
-   outline: none;
-   border-color: #3498db;
- }
- 
- button[type="submit"] {
-   background-color: #2ecc71;
-   color: white;
-   padding: 1rem 1.5rem;
-   border: none;
-   border-radius: 5px;
-   font-size: 1rem;
-   font-weight: 600;
-   cursor: pointer;
-   transition: background-color 0.3s ease;
-   margin-top: 1rem;
- }
- 
- button[type="submit"]:hover {
-   background-color: #27ae60;
- }
- 
- @media (max-width: 600px) {
-   .create-budget {
-     margin: 1rem;
-     padding: 1.5rem;
-   }
- }
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+}
+
+/* Form layout */
+.budget-table {
+  font-family: "Space Mono", monospace;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.budget-table input[type="number"] {
+  width: 100%;
+  font-family: 'Space Mono', monospace;
+  font-size: 15px;
+  color: #30353c;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.budget-table th, .budget-table td {
+  border: 1px solid #30353c;
+  padding: 8px 12px;
+  word-wrap: break-word;
+  font-size: 15px;
+  color: #30353c;
+}
+
+.budget-table th {
+  background-color: #e2e2e2; /* Optional: gives the header a light gray background */
+  font-weight: bold; /* Make header text bold */
+  text-align: center; /* Align header text to the left */
+}
+
+.section-header {
+  background-color: #eee;
+}
+
+.section-header, .total, .ending-balance {
+  font-weight: bold;
+}
+
+.budget-table tr:not(:last-child) td {
+  border-bottom: 1px solid #30353c;
+}
+
+.money {
+  text-align: right;
+}
+
+.submit-btn-cont {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.submit-button {
+  background-color: #5cb85c;
+  color: #eff2fa;
+  padding: 15px 25px;
+  border: 2px solid #5cb85c;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 15px;
+  transition: all ease-in-out 0.2s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.submit-button:hover {
+  background-color: #2a8243;
+}
+
+/* Label and input side-by-side */
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  width: 10%;
+  font-size: 25px;
+  font-weight: 400;
+  color: #30353c;
+  text-align: left;
+  margin-right: 1rem;
+}
+
+.form-group input {
+  width: 90%;
+  padding: 0.8rem;
+  border: 2px solid #bdc3c7;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .create-budget {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-group label,
+  .form-group input {
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .back-button,
+  .submit-button {
+    width: 100%;
+  }
+}
