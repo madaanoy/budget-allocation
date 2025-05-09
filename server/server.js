@@ -12,18 +12,24 @@ app.use(cors({
   origin: [
     "http://localhost:3000",
     "https://budget-allocation-bay.vercel.app",
-    "https://budget-allocation.onrender.com/"
+    "https://budget-allocation.onrender.com/" // In use frontend domain
   ],
   methods: ["GET", "POST", "PUT", "DELETE"], // Optional
 }));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("MongoDB Connected"))
-    .catch(err => {
-        console.error("MongoDB connection error:", err);
-        process.exit(1);  // Optional: gracefully shutdown server if DB connection fails
-    });
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => {
+    console.error("MongoDB connection error:", err);
+    process.exit(1);  // Optional: gracefully shutdown server if DB connection fails
+  });
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://budget-allocation.onrender.com");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // Routes
 app.use('/api', budgetRouter);
@@ -31,7 +37,7 @@ app.use('/api', budgetRouter);
 const path = require("path");
 
 app.get("/", (req, res) => {
-    res.send("API is running...");
+  res.send("API is running...");
 });
 
 // Start server
