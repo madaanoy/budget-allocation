@@ -64,6 +64,10 @@ h1 {
   width: 100%;
 }
 
+.left-merged-column {
+  text-align: center;
+}
+
 .budget-card {
   background-color: white;
   border-radius: 15px;

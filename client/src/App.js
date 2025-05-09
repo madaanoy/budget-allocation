@@ -49,8 +49,11 @@ function Home() {
                 <tbody>
                   <tr>
                     <td rowSpan="3" className="left-merged-column">
-                      {/* change into dynamic content later */}
-                      MM/DD/YY
+                      {new Date(budget.createdAt).toLocaleDateString('en-US', {
+                        month: '2-digit',
+                        day: '2-digit',
+                        year: 'numeric'
+                      })}
                     </td>
                     <td>MOOE</td>
                     <td className="money">₱ {budget.MOOE.toLocaleString()}</td>
