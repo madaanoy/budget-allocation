@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
   });
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://budget-allocation-o58h.onrender.com");
+  res.header("Access-Control-Allow-Origin", "https://budget-allocation.onrender.com");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
