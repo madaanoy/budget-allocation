@@ -10,7 +10,7 @@ function BudgetDetails() {
     useEffect(() => {
         const fetchBudget = async () => {
             try {
-                const response = await axios.get(`https://budget-allocation-server.onrender.com/api/budgets/${id}`);
+                const response = await axios.get(`https://budget-allocation-ij50.onrender.com/api/budgets/${id}`);
                 setBudget(response.data);
             } catch (error) {
                 console.error("Error fetching budget:", error);
