@@ -23,11 +23,11 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     process.exit(1);  // Optional: gracefully shutdown server if DB connection fails
   });
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://budget-allocation.onrender.com");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+//app.use((req, res, next) => {
+  //res.header("Access-Control-Allow-Origin", "https://budget-allocation.onrender.com");
+  //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  //next();
+//});
 
 // Routes
 app.use('/api', budgetRouter);
