@@ -16,7 +16,7 @@ const CreateBudget = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://budget-allocation-server.onrender.com/api/budgets', formData);
+      await axios.post('https://budget-allocation-ij50.onrender.com/api/budgets', formData);
       navigate('/');
     } catch (error) {
       console.error('Error creating budget:', error);
