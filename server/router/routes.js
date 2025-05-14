@@ -13,6 +13,10 @@ router.post('/budgets', async (req, res) => {
             PE: req.body.PE
         });
         await budget.save();
+        await axios.post('https://express-auro.onrender.com/api/ticket/create/mnas', {
+        reference_id: budget._id,
+        title: budget.title,
+      });
         res.status(201).json(budget);
     } catch (err) {
         res.status(400).json({ message: err.message });
