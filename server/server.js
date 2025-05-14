@@ -8,7 +8,7 @@ const app = express();
 
 // List of allowed origins
 const allowedOrigins = [
-  "https://budget-allocation-o58h.onrender.com", 
+  "https://budget-allocation.onrender.com", 
   "https://next-auro.vercel.app"
 ];
 
