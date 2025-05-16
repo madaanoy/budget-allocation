@@ -16,30 +16,30 @@ const allowedOrigins = [
 app.use(express.json());
 app.use(cors({
   origin: (origin, callback) => {
-    // Check if the origin is in the allowedOrigins list
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);  // Allow the request
+    // Allow requests with no origin (like mobile apps, curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));  // Reject the request
+      callback(new Error('Not allowed by CORS'));
     }
   },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true  // Allow cookies/credentials
+  credentials: true
 }));
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to MongoDB (updated to use default options)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => {
     console.error("MongoDB connection error:", err);
-    process.exit(1);  // Gracefully shut down the server if DB connection fails
+    process.exit(1);
   });
 
 // Routes
 app.use('/api', budgetRouter);
-
-const path = require("path");
 
 app.get("/", (req, res) => {
   res.send("API is running...");
