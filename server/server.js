@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const budgetRouter = require("./router/routes");
+const budgetRouter = require("./router/routes");a
 
 const app = express();
 
@@ -16,7 +16,6 @@ const allowedOrigins = [
 app.use(express.json());
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps, curl requests)
     if (!origin) return callback(null, true);
     
     if (allowedOrigins.includes(origin)) {
@@ -30,7 +29,6 @@ app.use(cors({
   credentials: true
 }));
 
-// Connect to MongoDB (updated to use default options)
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => {
