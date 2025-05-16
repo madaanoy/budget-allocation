@@ -20,5 +20,5 @@ const disbursementSchema = new Schema({
    }
 }, { timestamps: true });
 
-const Budget = mongoose.model('Budget', budgetSchema);
-module.exports = Budget;
+const Disbursement = mongoose.model('Disbursement', disbursementSchema);
+module.exports = Disbursement;
