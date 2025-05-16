@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Budget = require('../models/budgetFile.js');
+const Disbursement = require('../models/disbursementFile.js');
 const axios = require('axios');
 
 // create budget
@@ -23,6 +24,21 @@ router.post('/budgets', async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
+
+router.post('/disbursement', async (req, res) => {
+    try {
+        const disbursement = new Disbursement({
+            amount: req.body.amount,
+            category: req.body.category,
+            budget_id: req.body.budget_id,
+            status: req.body.status
+        })
+        await disbursement.save();
+        res.status(201).json(disbursement);
+    } catch (err) {
+        res.status(400).json({message: err.message});
+    }
+})
 
 router.put('/budgets/:id/approve', async (req, res) => {
     try {
