@@ -41,7 +41,8 @@ function Home() {
         reference_id: id
       })
       status = response.status;
-
+      console.log(status);
+      console.log(response.status);
       return response.status;
     } catch (error) {
       console.error(error);
