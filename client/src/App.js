@@ -40,10 +40,10 @@ function Home() {
       const response = await axios.post("https://express-auro.onrender.com/api/ticket/status", {
         reference_id: id
       })
-      status = response.status;
+      status = response.data.status;
       console.log(status);
-      console.log(response.status);
-      return response.status;
+      console.log(response.data.status);
+      return response.data.status;
     } catch (error) {
       console.error(error);
     }
