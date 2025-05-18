@@ -20,18 +20,23 @@ function BudgetDetails() {
                 setBudget(response.data.budget);
                 setRemarks(response.data.remarks);
 
-                console.log()
+                var mooe1 = Number(response.data.budget.MOOE)
+                var co1 = Number(response.data.budget.CO)
+                var ps1 =  Number(response.data.budget.PS)
                 for (const disbursement of disResponse.data) {
                     if (disbursement.budget_id == id) {
                         if (disbursement.category == "MOOE") {
-                            setMooe(Number(response.data.budget.MOOE) - Number(disbursement.amount))
+                            mooe1 =- Number(disbursement.amount)
                         } else if (disbursement.category == "CO") {
-                            setCo(Number(response.data.budget.CO) - Number(disbursement.amount))
+                            co1 =- Number(disbursement.amount)
                         } else if (disbursement.category == "PS") {
-                            setPs(Number(response.data.budget.PS) - Number(disbursement.amount))
+                            ps1 =- Number(disbursement.amount)
                         }
                     }
                 }
+                setMooe(mooe1)
+                setCo(co1)
+                setPs(ps1)
 
                 console.log(mooe);
                 console.log(co);
