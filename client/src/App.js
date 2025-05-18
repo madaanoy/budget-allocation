@@ -75,8 +75,8 @@ function Home() {
               <Link to={`/budget/${budget._id}`}>
                 <h3 className="clickable-title">{budget.title}</h3>
               </Link>
-              <div className={`status ${getStatus(budget_id) == "Approved" ? "green" : getStatus(budget_id) == "For Approval" ? "yellow" : "red"}`}>
-                {getStatus(budget_id) == "Approved" ? "Approved" : getStatus(budget_id) == "For Approval" ? "Pending" : "Declied"}
+              <div className={`status ${getStatus(budget._id) == "Approved" ? "green" : getStatus(budget._id) == "For Approval" ? "yellow" : "red"}`}>
+                {getStatus(budget._id) == "Approved" ? "Approved" : getStatus(budget._id) == "For Approval" ? "Pending" : "Declied"}
               </div>
             </div>
             <div className="budget-info">
