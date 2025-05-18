@@ -4,10 +4,13 @@ import axios from "axios";
 import CreateBudget from "./CreateBudget";
 import BudgetDetails from "./BudgetDetails";
 import RealignBudget from "./RealignBudget";
+import LogIn from "./LogIn";
+import SignUp from "./SignUp";
 import "./App.css";
 
 function Home() {
   const [budgets, setBudgets] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBudgets = async () => {
@@ -21,6 +24,10 @@ function Home() {
     fetchBudgets();
   }, []);
 
+  const handleLogout = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="home-cont">
       <div className="header-row">
@@ -28,9 +35,16 @@ function Home() {
           <img src="/budget.png" alt="Budget Logo" className="logo" />
           <h1>Budget Allocation System</h1>
         </div>
-        <Link to="/create">
-          <button className="create-btn">Create</button>
-        </Link>
+
+        <div className="header-actions">
+          <Link to="/create">
+            <button className="create-btn">Create</button>
+          </Link>
+
+          <button className="logout-btn" onClick={handleLogout} title="Log Out">
+            <img src="/logout.png" alt="Log Out" className="logout-icon" />
+          </button>
+        </div>
       </div>
 
       <div className="budget-list">
@@ -61,7 +75,7 @@ function Home() {
                     <td>CO</td>
                     <td className="money">₱ {budget.CO.toLocaleString()}</td>
                   </tr><tr>
-                    <td>PS</td>
+                    <td>PE</td>
                     <td className="money">₱ {budget.PE.toLocaleString()}</td>
                   </tr>
                 </tbody>
@@ -82,6 +96,8 @@ function App() {
         <Route path="/create" element={<CreateBudget />} />
         <Route path="/budget/:id" element={<BudgetDetails />} />
         <Route path="/realign/:id" element={<RealignBudget />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   );

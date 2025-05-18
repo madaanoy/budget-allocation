@@ -85,24 +85,28 @@ function RealignPage() {
                         <tr className="subtotal">
                             <td colSpan="3">Maintenance and Other Operating Expenses (MOOE)</td>
                             <td className="money">{budget.MOOE.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
-                            <td></td>
+                            {/*change with disbersement backend*/}
+                            <td className="money">XXX,XXX.XX</td>
                         </tr>
                         <tr className="subtotal">
                             <td colSpan="3">Capital Outlay (CO)</td>
                             <td className="money">{budget.CO.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
-                            <td></td>
+                            {/*change with disbersement backend*/}
+                            <td className="money">XXX,XXX.XX</td>
                         </tr>
                         <tr className="subtotal">
-                            <td colSpan="3">Personal Services (PS)</td>
+                            <td colSpan="3">Personal Expenses (PE)</td>
                             <td className="money">{budget.PE.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
-                            <td></td>
+                            {/*change with disbersement backend*/}
+                            <td className="money">XXX,XXX.XX</td>
                         </tr>
                         <tr className="total">
                             <td colSpan="3">TOTAL</td>
                             <td className="money">
                                 <strong>{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong>
                             </td>
-                            <td></td>
+                            {/*make dynamic that adds remaining MOOE, CO, and PE*/}
+                            <td className="money">XXX,XXX.XX</td>
                         </tr>
                         <tr className="ending-balance">
                             <td colSpan="3">Ending Balance</td>
@@ -114,7 +118,6 @@ function RealignPage() {
                     </tbody>
                 </table>
 
-                {/* Form with one row: Budget Type | Amount */}
                 <form className="realignment-form" onSubmit={handleSubmit}>
                     <div className="form-row single-row">
                         <div className="realign-form">
@@ -125,7 +128,7 @@ function RealignPage() {
                                 </option>
                                 <option value="mooe">Maintenance and Other Operating Expenses (MOOE)</option>
                                 <option value="co">Capital Outlay (CO)</option>
-                                <option value="ps">Personal Services (PS)</option>
+                                <option value="ps">Personal Expenses (PE)</option>
                             </select>
                         </div>
                         <div className="realign-form">
