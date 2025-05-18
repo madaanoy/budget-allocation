@@ -22,7 +22,7 @@ function BudgetDetails() {
 
                 var mooe1 = Number(response.data.budget.MOOE)
                 var co1 = Number(response.data.budget.CO)
-                var ps1 =  Number(response.data.budget.PS)
+                var ps1 =  Number(response.data.budget.PE)
                 for (const disbursement of disResponse.data) {
                     if (disbursement.budget_id == id) {
                         if (disbursement.category == "MOOE") {
@@ -55,6 +55,10 @@ function BudgetDetails() {
     const total = budget.MOOE + budget.CO + budget.PE;
     const endingBalance = 1000000 - total;
 
+    const setActiveBudget = async () => {
+
+    }
+
     return (
         <div className="details-cont">
             <div className="header-row">
@@ -70,9 +74,13 @@ function BudgetDetails() {
             <div className="budget-details">
                 <div className="details-header">
                     <h2 className="clickable-title">{budget.title}</h2>
-                    <Link to={`/realign/${id}`}>
-                        <button className="realign-btn">Realign</button>
-                    </Link>
+                    {/* <Link to={`/realign/${id}`}> */}
+                        <button
+                            onClick={() => setActiveBudget()}
+                            className="realign-btn">
+                                Realign
+                        </button>
+                    {/* </Link> */}
                 </div>
 
                 <table className="budget-table">
@@ -127,7 +135,7 @@ function BudgetDetails() {
                                 <strong>{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong>
                             </td>
                             {/*make dynamic that adds remaining MOOE, CO, and PE*/}
-                            <td className="money">XXX,XXX.XX</td>
+                            <td className="money">{mooe + co + ps}</td>
                         </tr><tr className="ending-balance">
                             <td colSpan="3">Ending Balance</td>
                             <td className="money">
