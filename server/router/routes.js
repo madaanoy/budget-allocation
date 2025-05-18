@@ -16,7 +16,8 @@ router.post('/budgets', async (req, res) => {
             ActCO: req.body.CO,
             PE: req.body.PE,
             ActPE: req.body.PE,
-            ticketId: ""
+            ticketId: "",
+            remarks: ""
         });
         await budget.save();
         const response = await axios.post('https://express-auro.onrender.com/api/ticket/create/budget', {
@@ -24,8 +25,10 @@ router.post('/budgets', async (req, res) => {
             title: budget.title,
         });
 
-        await Budget.findByIdAndUpdate(response.budget_id, {
-            ticketId: response.ticketId
+        const { ticketId } = response.data;
+
+        await Budget.findByIdAndUpdate(budget._id, {
+            ticketId: ticketId
         })
 
         res.status(201).json(budget);
