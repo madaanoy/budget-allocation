@@ -15,10 +15,20 @@ function BudgetDetails() {
         const fetchBudget = async () => {
             try {
                 const response = await axios.get(`https://budget-allocation-ij50.onrender.com/api/budgets/${id}`);
-                // setBudget(response.data);
-                console.log(response.data.remarks);
-                console.log(response.data.budget);
-                
+                const disResponse = await axios.get(`https://budget-allocation-ij50.onrender.com/api/disbursement/${id}`)
+                setMooe(response.data.MOOE);
+                setCo(response.data.CO);
+                setPs(response.data.PS);
+                for (const disbursement of disResponse.data) {
+                    if (disbursement.category == "MOOE") {
+                        setMooe(mooe - disbursement.amount)
+                    } else if (disbursement.category == "CO") {
+                        setCo(co - disbursement.amount)
+                    } else if (disbursement.category == "PS") {
+                        setPs(ps - disbursement.amount)
+                    }
+                }
+
                 setBudget(response.data.budget);
                 setRemarks(response.data.remarks);
             } catch (error) {
@@ -89,18 +99,18 @@ function BudgetDetails() {
                             <td colSpan="3">Maintenance and Other Operating Expenses (MOOE)</td>
                             <td className="money">{Number(budget.MOOE).toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                             {/*change with disbersement backend*/}
-                            <td className="money">XXX,XXX.XX</td>
+                            <td className="money">{mooe == null ? "XXX,XXX.XX" : mooe}</td>
                         </tr>
                         <tr className="subtotal">
                             <td colSpan="3">Capital Outlay (CO)</td>
                             <td className="money">{Number(budget.CO).toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                             {/*change with disbersement backend*/}
-                            <td className="money">XXX,XXX.XX</td>
+                            <td className="money">{co == null ? "XXX,XXX.XX" : co}</td>
                         </tr><tr className="subtotal">
                             <td colSpan="3">Personal Expenses (PE)</td>
                             <td className="money">{Number(budget.PE).toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                             {/*change with disbersement backend*/}
-                            <td className="money">XXX,XXX.XX</td>
+                            <td className="money">{ps == null ? "XXX,XXX.XX" : ps}</td>
                         </tr><tr className="total">
                             <td colSpan="3">TOTAL</td>
                             <td className="money">

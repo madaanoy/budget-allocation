@@ -40,6 +40,15 @@ router.post('/budgets', async (req, res) => {
     }
 });
 
+router.get('/disbursement/:id', async (req, res) => {
+    try {
+        const disbursements = Disbursement.find();
+        res.json(disbursements);
+    } catch (err) {
+        res.status(400).json({message: err.message});
+    }
+})
+
 router.post('/disbursement', async (req, res) => {
     try {
         const disbursement = new Disbursement({
