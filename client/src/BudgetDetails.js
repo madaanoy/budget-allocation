@@ -20,20 +20,22 @@ function BudgetDetails() {
                 setBudget(response.data.budget);
                 setRemarks(response.data.remarks);
 
-                setMooe(response.data.budget.MOOE);
-                setCo(response.data.budget.CO);
-                setPs(response.data.budget.PS);
+                console.log()
                 for (const disbursement of disResponse.data) {
                     if (disbursement.budget_id == id) {
                         if (disbursement.category == "MOOE") {
-                            setMooe(Number(mooe) - Number(disbursement.amount))
+                            setMooe(Number(response.data.budget.MOOE) - Number(disbursement.amount))
                         } else if (disbursement.category == "CO") {
-                            setCo(Number(co) - Number(disbursement.amount))
+                            setCo(Number(response.data.budget.CO) - Number(disbursement.amount))
                         } else if (disbursement.category == "PS") {
-                            setPs(Number(ps) - Number(disbursement.amount))
+                            setPs(Number(response.data.budget.PS) - Number(disbursement.amount))
                         }
                     }
                 }
+
+                console.log(mooe);
+                console.log(co);
+                console.log(ps);
             } catch (error) {
                 console.error("Error fetching budget:", error);
             }
