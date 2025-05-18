@@ -167,3 +167,9 @@ h1 {
   color: rgb(234 179 8);
   border: 1px solid rgb(234 179 8);
 }
+
+.red {
+  background-color: rgba(234, 179, 8, 0.10);
+  color: rgb(234, 8, 8);
+  border: 1px solid rgb(234, 8, 8);
+}

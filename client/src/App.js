@@ -17,6 +17,7 @@ import "./App.css";
 function Home() {
   const [budgets, setBudgets] = useState([]);
   const navigate = useNavigate();
+  const status = "For Approval";
 
   useEffect(() => {
     const fetchBudgets = async () => {
@@ -33,6 +34,19 @@ function Home() {
   const handleLogout = () => {
     navigate("/login");
   };
+
+  const getStatus = async (id) => {
+    try {
+      const response = await axios.post("https://express-auro.onrender.com/api/ticket/status", {
+        reference_id: id
+      })
+      status = response.status;
+
+      return response.status;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <div className="home-cont">
@@ -60,8 +74,8 @@ function Home() {
               <Link to={`/budget/${budget._id}`}>
                 <h3 className="clickable-title">{budget.title}</h3>
               </Link>
-              <div className={`status ${budget.budgetStatus ? "green" : "yellow"}`}>
-                {budget.budgetStatus ? "Approved" : "Pending"}
+              <div className={`status ${getStatus(budget_id) == "Approved" ? "green" : status == "For Approval" ? "yellow" : "red"}`}>
+                {status == "Approved" ? "Approved" : status == "For Approval" ? "Pending" : "Declied"}
               </div>
             </div>
             <div className="budget-info">
