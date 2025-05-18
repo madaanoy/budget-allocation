@@ -15,17 +15,19 @@ function BudgetDetails() {
         const fetchBudget = async () => {
             try {
                 const response = await axios.get(`https://budget-allocation-ij50.onrender.com/api/budgets/${id}`);
-                const disResponse = await axios.get(`https://budget-allocation-ij50.onrender.com/api/disbursement/${id}`)
+                const disResponse = await axios.get(`https://budget-allocation-ij50.onrender.com/api/disbursement`)
                 setMooe(response.data.MOOE);
                 setCo(response.data.CO);
                 setPs(response.data.PS);
                 for (const disbursement of disResponse.data) {
-                    if (disbursement.category == "MOOE") {
-                        setMooe(mooe - disbursement.amount)
-                    } else if (disbursement.category == "CO") {
-                        setCo(co - disbursement.amount)
-                    } else if (disbursement.category == "PS") {
-                        setPs(ps - disbursement.amount)
+                    if (disbursement.budget_id == id) {
+                        if (disbursement.category == "MOOE") {
+                            setMooe(mooe - disbursement.amount)
+                        } else if (disbursement.category == "CO") {
+                            setCo(co - disbursement.amount)
+                        } else if (disbursement.category == "PS") {
+                            setPs(ps - disbursement.amount)
+                        }
                     }
                 }
 
