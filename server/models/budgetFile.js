@@ -7,8 +7,8 @@ const budgetSchema = new Schema({
       required: true,
    },
    budgetStatus: {
-      type: Boolean,
-      required: true
+      type: String,
+      default: "For Approval"
    },
    MOOE: {
       type: Number,

@@ -7,7 +7,6 @@ const CreateBudget = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: '',
-    budgetStatus: false,
     MOOE: 0,
     CO: 0,
     PE: 0

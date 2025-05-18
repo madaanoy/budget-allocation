@@ -11,7 +11,7 @@ router.post('/budgets', async (req, res) => {
         
         const budget = new Budget({
             title: req.body.title,
-            budgetStatus: req.body.budgetStatus,
+            budgetStatus: "For Approval",
             MOOE: req.body.MOOE,
             ActMOOE: req.body.MOOE,
             CO: req.body.CO,
@@ -55,12 +55,14 @@ router.post('/disbursement', async (req, res) => {
     }
 })
 
-router.put('/budgets/:id/approve', async (req, res) => {
+router.put('/budgets/update/:id', async (req, res) => {
     try {
+        const status = req.body.status
+        // const remarks = req.body.remarks
         const budget = await Budget.findByIdAndUpdate(
             req.params.id,
-            { budgetStatus: true },
-            { new: true }
+            { budgetStatus: status
+             },
         );
         res.json(budget);
     } catch (err) {

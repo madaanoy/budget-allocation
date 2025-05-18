@@ -24,6 +24,11 @@ function Home() {
       try {
         const response = await axios.get("https://budget-allocation-ij50.onrender.com/api/budgets")
         setBudgets(response.data);
+        budgets.map(async (budget) => (
+          await axios.put(`https://budget-allocation-ij50.onrender.com/api/budgets/update/${id}`, {
+            budgetStatus: getStatus(budget._id),
+          })
+        ))
       } catch (error) {
         console.error("Error fetching budgets:", error);
       }
@@ -75,8 +80,8 @@ function Home() {
               <Link to={`/budget/${budget._id}`}>
                 <h3 className="clickable-title">{budget.title}</h3>
               </Link>
-              <div className={`status ${getStatus(budget._id) == "Approved" ? "green" : getStatus(budget._id) == "For Approval" ? "yellow" : "red"}`}>
-                {getStatus(budget._id) == "Approved" ? "Approved" : getStatus(budget._id) == "For Approval" ? "Pending" : "Declied"}
+              <div className={`status ${budget.budgetStatus == "Approved" ? "green" : budget.budgetStatus == "For Approval" ? "yellow" : "red"}`}>
+                {budget.budgetStatus == "Approved" ? "Approved" : budget.budgetStatus == "For Approval" ? "Pending" : "Declied"}
               </div>
             </div>
             <div className="budget-info">
