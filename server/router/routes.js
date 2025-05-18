@@ -16,12 +16,18 @@ router.post('/budgets', async (req, res) => {
             ActCO: req.body.CO,
             PE: req.body.PE,
             ActPE: req.body.PE,
+            ticketId: ""
         });
         await budget.save();
-        const response = await axios.post('https://express-auro.onrender.com/api/ticket/create/mnas', {
-        reference_id: budget._id,
-        title: budget.title,
-      });
+        const response = await axios.post('https://express-auro.onrender.com/api/ticket/create/budget', {
+            reference_id: budget._id,
+            title: budget.title,
+        });
+
+        await Budget.findByIdAndUpdate(response.budget_id, {
+            ticketId: response.ticketId
+        })
+
         res.status(201).json(budget);
     } catch (err) {
         res.status(400).json({ message: err.message });
