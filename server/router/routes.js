@@ -40,7 +40,7 @@ router.post('/budgets', async (req, res) => {
     }
 });
 
-router.get('/disbursement/:id', async (req, res) => {
+router.get('/disbursement', async (req, res) => {
     try {
         const disbursements = Disbursement.find();
         res.json(disbursements);
