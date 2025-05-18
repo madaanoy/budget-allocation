@@ -117,25 +117,25 @@ function BudgetDetails() {
                             <td colSpan="3">Maintenance and Other Operating Expenses (MOOE)</td>
                             <td className="money">{Number(budget.MOOE).toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                             {/*change with disbersement backend*/}
-                            <td className="money">{mooe == null ? "XXX,XXX.XX" : mooe}</td>
+                            <td className="money">{mooe == null ? "XXX,XXX.XX" : mooe.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                         </tr>
                         <tr className="subtotal">
                             <td colSpan="3">Capital Outlay (CO)</td>
                             <td className="money">{Number(budget.CO).toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                             {/*change with disbersement backend*/}
-                            <td className="money">{co == null ? "XXX,XXX.XX" : co}</td>
+                            <td className="money">{co == null ? "XXX,XXX.XX" : co.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                         </tr><tr className="subtotal">
                             <td colSpan="3">Personal Expenses (PE)</td>
                             <td className="money">{Number(budget.PE).toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                             {/*change with disbersement backend*/}
-                            <td className="money">{ps == null ? "XXX,XXX.XX" : ps}</td>
+                            <td className="money">{ps == null ? "XXX,XXX.XX" : ps.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                         </tr><tr className="total">
                             <td colSpan="3">TOTAL</td>
                             <td className="money">
                                 <strong>{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong>
                             </td>
                             {/*make dynamic that adds remaining MOOE, CO, and PE*/}
-                            <td className="money">{mooe + co + ps}</td>
+                            <td className="money">{(mooe + co + ps).toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
                         </tr><tr className="ending-balance">
                             <td colSpan="3">Ending Balance</td>
                             <td className="money">
