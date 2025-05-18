@@ -6,7 +6,6 @@ import "./BudgetDetails.css";
 function BudgetDetails() {
     const { id } = useParams();
     const [budget, setBudget] = useState(null);
-    const [remarks, setRemarks] = useState("");
 
     useEffect(() => {
         const fetchBudget = async () => {
@@ -108,7 +107,7 @@ function BudgetDetails() {
 
             <h2 className="comments">Comments</h2>
             <div className="comments-cont">
-                <p>The comments should appear here.</p>
+                <p>{budget.remarks == "" ? budget.remarks : "The comments should appear here."}</p>
             </div>
         </div>
     );
