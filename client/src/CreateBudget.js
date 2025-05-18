@@ -16,13 +16,7 @@ const CreateBudget = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://budget-allocation-ij50.onrender.com/api/budgets', formData);
-
-      // await axios.post('https://express-auro.onrender.com/api/ticket/create/mnas', {
-      //   reference_id: response.data._id,
-      //   title: response.data.title
-      // })
-
+      await axios.post('https://budget-allocation-ij50.onrender.com/api/budgets', formData);
       navigate('/');
     } catch (error) {
       console.error('Error creating budget:', error);
