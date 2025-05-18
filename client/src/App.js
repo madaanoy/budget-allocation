@@ -17,18 +17,20 @@ import "./App.css";
 function Home() {
   const [budgets, setBudgets] = useState([]);
   const navigate = useNavigate();
-  var status = "For Approval";
 
   useEffect(() => {
     const fetchBudgets = async () => {
       try {
         const response = await axios.get("https://budget-allocation-ij50.onrender.com/api/budgets")
-        setBudgets(response.data);
-        budgets.map(async (budget) => (
+        const budgetList = response.data;
+
+        for (const budget of budgetList) {
+          const status = await getStatus(budget._id);
           await axios.put(`https://budget-allocation-ij50.onrender.com/api/budgets/update/${id}`, {
-            budgetStatus: getStatus(budget._id),
+            budgetStatus: status,
           })
-        ))
+        }
+        setBudgets(budgetList);
       } catch (error) {
         console.error("Error fetching budgets:", error);
       }
@@ -45,9 +47,6 @@ function Home() {
       const response = await axios.post("https://express-auro.onrender.com/api/ticket/status", {
         reference_id: id
       })
-      status = response.data.status;
-      console.log(status);
-      console.log(response.data.status);
       return response.data.status;
     } catch (error) {
       console.error(error);
