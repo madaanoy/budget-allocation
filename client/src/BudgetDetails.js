@@ -26,11 +26,11 @@ function BudgetDetails() {
                 for (const disbursement of disResponse.data) {
                     if (disbursement.budget_id == id) {
                         if (disbursement.category == "MOOE") {
-                            mooe1 =- Number(disbursement.amount)
+                            mooe1 -= Number(disbursement.amount)
                         } else if (disbursement.category == "CO") {
-                            co1 =- Number(disbursement.amount)
+                            co1 -= Number(disbursement.amount)
                         } else if (disbursement.category == "PS") {
-                            ps1 =- Number(disbursement.amount)
+                            ps1 -= Number(disbursement.amount)
                         }
                     }
                 }
