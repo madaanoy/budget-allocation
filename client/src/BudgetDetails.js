@@ -20,9 +20,12 @@ function BudgetDetails() {
                 setBudget(response.data.budget);
                 setRemarks(response.data.remarks);
 
-                setMooe(Number(budget.MOOE));
-                setCo(Number(budget.CO));
-                setPs(Number(budget.PS));
+                console.log(response.data.budget)
+                console.log(response.data.budget.MOOE)
+
+                setMooe(budget.MOOE);
+                setCo(budget.CO);
+                setPs(budget.PS);
                 for (const disbursement of disResponse.data) {
                     if (disbursement.budget_id == id) {
                         if (disbursement.category == "MOOE") {
