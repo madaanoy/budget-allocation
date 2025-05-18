@@ -42,7 +42,7 @@ router.post('/budgets', async (req, res) => {
 
 router.get('/disbursement', async (req, res) => {
     try {
-        const disbursements = Disbursement.find();
+        const disbursements = await Disbursement.find();
         res.json(disbursements);
     } catch (err) {
         res.status(400).json({message: err.message});
