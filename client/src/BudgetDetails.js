@@ -6,12 +6,14 @@ import "./BudgetDetails.css";
 function BudgetDetails() {
     const { id } = useParams();
     const [budget, setBudget] = useState(null);
+    const [remarks, setRemarks] = useState(null);
 
     useEffect(() => {
         const fetchBudget = async () => {
             try {
                 const response = await axios.get(`https://budget-allocation-ij50.onrender.com/api/budgets/${id}`);
-                setBudget(response.data);
+                setBudget(response.data.budget);
+                setRemarks(response.data.remarks);
             } catch (error) {
                 console.error("Error fetching budget:", error);
             }
@@ -111,7 +113,7 @@ function BudgetDetails() {
 
             <h2 className="comments">Comments</h2>
             <div className="comments-cont">
-                <p>{budget.remarks == "" ? budget.remarks : "The comments should appear here."}</p>
+                <p>{remarks.remarks == "" ? remarks.remarks : "The comments should appear here."}</p>
             </div>
         </div>
     );
