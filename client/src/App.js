@@ -26,9 +26,11 @@ function Home() {
 
         for (const budget of budgetList) {
           const status = await getStatus(budget._id);
-          await axios.put(`https://budget-allocation-ij50.onrender.com/api/budgets/update/${budget._id}`, {
-            budgetStatus: status,
-          })
+          if (budget.budgetStatus == "For Approval") {
+            await axios.put(`https://budget-allocation-ij50.onrender.com/api/budgets/update/${budget._id}`, {
+              budgetStatus: status,
+            })
+          }
         }
         setBudgets(budgetList);
       } catch (error) {
@@ -80,7 +82,7 @@ function Home() {
                 <h3 className="clickable-title">{budget.title}</h3>
               </Link>
               <div className={`status ${budget.budgetStatus == "Approved" ? "green" : budget.budgetStatus == "For Approval" ? "yellow" : "red"}`}>
-                {budget.budgetStatus == "Approved" ? "Approved" : budget.budgetStatus == "For Approval" ? "Pending" : "Declined"}
+                {budget.budgetStatus == "Approved" ? "Approved" : budget.budgetStatus == "For Approval" ? "For Approval" : "Declined"}
               </div>
             </div>
             <div className="budget-info">
