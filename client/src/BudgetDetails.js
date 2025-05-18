@@ -56,9 +56,15 @@ function BudgetDetails() {
     const endingBalance = 1000000 - total;
 
     const setActiveBudget = async () => {
-        await axios.post("https://fams-m6yv.onrender.com/api/activeBudgets", {
+        const response = await axios.post("https://fams-m6yv.onrender.com/api/activeBudgets", {
             budget_id: id
         })
+
+        if (response.status == 201) {
+            alert('Budget is now active')
+        } else {
+            alert('Error');
+        }
     }
 
     return (
