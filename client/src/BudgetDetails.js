@@ -7,6 +7,9 @@ function BudgetDetails() {
     const { id } = useParams();
     const [budget, setBudget] = useState(null);
     const [remarks, setRemarks] = useState(null);
+    const [mooe, setMooe] = useState(null);
+    const [co, setCo] = useState(null);
+    const [ps, setPs] = useState(null);
 
     useEffect(() => {
         const fetchBudget = async () => {
