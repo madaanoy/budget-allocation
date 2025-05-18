@@ -13,6 +13,8 @@ function BudgetDetails() {
             try {
                 const response = await axios.get(`https://budget-allocation-ij50.onrender.com/api/budgets/${id}`);
                 // setBudget(response.data);
+                console.log(response);
+                
                 setBudget(response.data.budget);
                 setRemarks(response.data.remarks);
             } catch (error) {
