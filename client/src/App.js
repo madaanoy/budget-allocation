@@ -17,7 +17,7 @@ import "./App.css";
 function Home() {
   const [budgets, setBudgets] = useState([]);
   const navigate = useNavigate();
-  const status = "For Approval";
+  var status = "For Approval";
 
   useEffect(() => {
     const fetchBudgets = async () => {
