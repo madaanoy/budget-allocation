@@ -11,8 +11,11 @@ router.post('/budgets', async (req, res) => {
             title: req.body.title,
             budgetStatus: req.body.budgetStatus,
             MOOE: req.body.MOOE,
+            ActMOOE: req.body.MOOE,
             CO: req.body.CO,
-            PE: req.body.PE
+            ActCO: req.body.CO,
+            PE: req.body.PE,
+            ActPE: req.body.PE
         });
         await budget.save();
         await axios.post('https://express-auro.onrender.com/api/ticket/create/mnas', {
