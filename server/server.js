@@ -10,7 +10,8 @@ const app = express();
 const allowedOrigins = [
   "https://budget-allocation.onrender.com", 
   "https://next-auro.vercel.app",
-   "https://fams-m6yv.onrender.com"
+  "https://fams-m6yv.onrender.com",
+  "https://fams-m6yv.onrender.com/api"
 ];
 
 // Middleware
