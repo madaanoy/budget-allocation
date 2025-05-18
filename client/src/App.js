@@ -5,7 +5,7 @@ import CreateBudget from "./CreateBudget";
 import BudgetDetails from "./BudgetDetails";
 import RealignBudget from "./RealignBudget";
 import "./App.css";
-//test commit
+
 function Home() {
   const [budgets, setBudgets] = useState([]);
 
