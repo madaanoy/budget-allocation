@@ -7,6 +7,8 @@ const axios = require('axios');
 // create budget
 router.post('/budgets', async (req, res) => {
     try {
+        console.log(req.body);
+        
         const budget = new Budget({
             title: req.body.title,
             budgetStatus: req.body.budgetStatus,
@@ -20,7 +22,7 @@ router.post('/budgets', async (req, res) => {
             remarks: ""
         });
         await budget.save();
-        const response = await axios.post('https://express-auro.onrender.com/api/ticket/create/budget', {
+        const response = await axios.post('https://express-auro.onrender.com/api/ticket/create/mnas', {
             reference_id: budget._id,
             title: budget.title,
         });
