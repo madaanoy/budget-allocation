@@ -36,11 +36,11 @@ const budgetSchema = new Schema({
    },
    ticketId: {
       type: String,
-      required: true
+      default: ""
    },
    remarks: {
       type: String,
-      required: true
+      default: ""
    }
 }, { timestamps: true });
 
