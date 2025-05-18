@@ -11,7 +11,8 @@ const allowedOrigins = [
   "https://budget-allocation.onrender.com", 
   "https://next-auro.vercel.app",
   "https://fams-m6yv.onrender.com",
-  "https://fams-m6yv.onrender.com/api"
+  "https://fams-m6yv.onrender.com/api",
+  "https://fams-0vk6.onrender.com"
 ];
 
 // Middleware
