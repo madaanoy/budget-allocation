@@ -81,7 +81,7 @@ function Home() {
                 <h3 className="clickable-title">{budget.title}</h3>
               </Link>
               <div className={`status ${budget.budgetStatus == "Approved" ? "green" : budget.budgetStatus == "For Approval" ? "yellow" : "red"}`}>
-                {budget.budgetStatus == "Approved" ? "Approved" : budget.budgetStatus == "For Approval" ? "Pending" : "Declied"}
+                {budget.budgetStatus == "Approved" ? "Approved" : budget.budgetStatus == "For Approval" ? "Pending" : "Declined"}
               </div>
             </div>
             <div className="budget-info">
