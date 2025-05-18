@@ -28,11 +28,11 @@ router.post('/budgets', async (req, res) => {
             title: budget.title,
         });
 
-        // const { ticketId } = response.data;
+        const { ticketId } = response.data;
 
-        // await Budget.findByIdAndUpdate(budget._id, {
-        //     ticketId: ticketId
-        // })
+        await Budget.findByIdAndUpdate(budget._id, {
+            ticketId: ticketId
+        })
 
         res.status(201).json(budget);
     } catch (err) {
