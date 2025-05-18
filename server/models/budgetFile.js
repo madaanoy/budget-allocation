@@ -22,6 +22,26 @@ const budgetSchema = new Schema({
       type: Number,
       required: true,
    },
+   ActMOOE: {
+      type: Number,
+      required: true
+   },
+   ActCO: {
+      type: Number,
+      required: true
+   },
+   ActPE: {
+      type: Number,
+      required: true
+   },
+   ticketId: {
+      type: String,
+      required: true
+   },
+   remarks: {
+      type: String,
+      required: true
+   }
 }, { timestamps: true });
 
 const Budget = mongoose.model('Budget', budgetSchema);
