@@ -86,15 +86,15 @@ router.get('/budgets/:id', async (req, res) => {
             return res.status(404).json({ message: 'Budget not found' });
         }
 
-        // const response = await axios.post("https://express-auro.onrender.com/api/ticket/status", {
-        //     reference_id: req.params.id
-        // });
+        const response = await axios.post("https://express-auro.onrender.com/api/ticket/status", {
+            reference_id: req.params.id
+        });
 
-        res.json(budget);
-        // res.json({
-        //     budget: budget,
-        //     remarks: response.data
-        // });
+        // res.json(budget);
+        res.json({
+            budget: budget,
+            remarks: response.data
+        });
     } catch (err) {
         res.status(500).json({ message: err.response?.data });
     }
