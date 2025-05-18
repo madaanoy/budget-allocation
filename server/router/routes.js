@@ -85,15 +85,4 @@ router.get('/budgets/:id', async (req, res) => {
     }
 });
 
-// get disbursement
-router.get('/disbursement', async (req, res) => {
-  try {
-    const response = await axios.get('https://express-auro.onrender.com/api/ticket/status');
-    const disbursement = response.data;
-    res.json(disbursement); 
-  } catch (error) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
 module.exports = router;
