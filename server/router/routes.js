@@ -22,7 +22,7 @@ router.post('/budgets', async (req, res) => {
             remarks: ""
         });
         await budget.save();
-        const response = await axios.post('https://express-auro.onrender.com/api/ticket/create/mnas', {
+        const response = await axios.post('https://express-auro.onrender.com/api/ticket/create/budget', {
             reference_id: budget._id,
             reference_link: "https://budget-allocation-ij50.onrender.com/api/budgets/:id",
             title: budget.title,
