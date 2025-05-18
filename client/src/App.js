@@ -26,7 +26,7 @@ function Home() {
 
         for (const budget of budgetList) {
           const status = await getStatus(budget._id);
-          await axios.put(`https://budget-allocation-ij50.onrender.com/api/budgets/update/${id}`, {
+          await axios.put(`https://budget-allocation-ij50.onrender.com/api/budgets/update/${budget._id}`, {
             budgetStatus: status,
           })
         }
