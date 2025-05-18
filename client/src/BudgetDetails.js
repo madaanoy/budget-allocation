@@ -19,18 +19,18 @@ function BudgetDetails() {
 
                 setBudget(response.data.budget);
                 setRemarks(response.data.remarks);
-                
+
                 setMooe(response.data.budget.MOOE);
                 setCo(response.data.budget.CO);
                 setPs(response.data.budget.PS);
                 for (const disbursement of disResponse.data) {
                     if (disbursement.budget_id == id) {
                         if (disbursement.category == "MOOE") {
-                            setMooe(mooe - disbursement.amount)
+                            setMooe(Number(mooe) - Number(disbursement.amount))
                         } else if (disbursement.category == "CO") {
-                            setCo(co - disbursement.amount)
+                            setCo(Number(co) - Number(disbursement.amount))
                         } else if (disbursement.category == "PS") {
-                            setPs(ps - disbursement.amount)
+                            setPs(Number(ps) - Number(disbursement.amount))
                         }
                     }
                 }
