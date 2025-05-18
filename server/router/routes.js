@@ -94,7 +94,7 @@ router.get('/budgets/:id', async (req, res) => {
             remarks: response.data
         });
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: err.response?.data });
     }
 });
 
