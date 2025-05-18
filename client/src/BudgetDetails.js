@@ -56,7 +56,9 @@ function BudgetDetails() {
     const endingBalance = 1000000 - total;
 
     const setActiveBudget = async () => {
-
+        await axios.post("https://fams-m6yv.onrender.com/api/activeBudgets", {
+            budget_id: id
+        })
     }
 
     return (
@@ -78,7 +80,7 @@ function BudgetDetails() {
                         <button
                             onClick={() => setActiveBudget()}
                             className="realign-btn">
-                                Realign
+                                Set Active Budget
                         </button>
                     {/* </Link> */}
                 </div>
