@@ -15,10 +15,10 @@ router.post('/budgets', async (req, res) => {
             CO: req.body.CO,
             ActCO: req.body.CO,
             PE: req.body.PE,
-            ActPE: req.body.PE
+            ActPE: req.body.PE,
         });
         await budget.save();
-        await axios.post('https://express-auro.onrender.com/api/ticket/create/mnas', {
+        const response = await axios.post('https://express-auro.onrender.com/api/ticket/create/mnas', {
         reference_id: budget._id,
         title: budget.title,
       });
