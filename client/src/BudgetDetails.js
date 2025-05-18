@@ -7,18 +7,22 @@ function BudgetDetails() {
     const { id } = useParams();
     const [budget, setBudget] = useState(null);
     const [remarks, setRemarks] = useState(null);
-    const [mooe, setMooe] = useState(null);
-    const [co, setCo] = useState(null);
-    const [ps, setPs] = useState(null);
+    const [mooe, setMooe] = useState(0);
+    const [co, setCo] = useState(0);
+    const [ps, setPs] = useState(0);
 
     useEffect(() => {
         const fetchBudget = async () => {
             try {
                 const response = await axios.get(`https://budget-allocation-ij50.onrender.com/api/budgets/${id}`);
                 const disResponse = await axios.get(`https://budget-allocation-ij50.onrender.com/api/disbursement`)
-                setMooe(response.data.MOOE);
-                setCo(response.data.CO);
-                setPs(response.data.PS);
+
+                setBudget(response.data.budget);
+                setRemarks(response.data.remarks);
+
+                setMooe(budget.MOOE);
+                setCo(budget.CO);
+                setPs(budget.PS);
                 for (const disbursement of disResponse.data) {
                     if (disbursement.budget_id == id) {
                         if (disbursement.category == "MOOE") {
@@ -30,9 +34,6 @@ function BudgetDetails() {
                         }
                     }
                 }
-
-                setBudget(response.data.budget);
-                setRemarks(response.data.remarks);
             } catch (error) {
                 console.error("Error fetching budget:", error);
             }
