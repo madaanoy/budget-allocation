@@ -6,7 +6,7 @@ import "./BudgetDetails.css";
 function BudgetDetails() {
     const { id } = useParams();
     const [budget, setBudget] = useState(null);
-    // const [remarks, setRemarks] = useState(null);
+    const [remarks, setRemarks] = useState(null);
 
     useEffect(() => {
         const fetchBudget = async () => {
@@ -83,30 +83,32 @@ function BudgetDetails() {
                             <td colSpan="5">Part II. Expenditure Programs</td>
                         </tr><tr className="subtotal">
                             <td colSpan="3">Maintenance and Other Operating Expenses (MOOE)</td>
-                            <td className="money">{budget.MOOE.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+                            {/* <td className="money">{budget.MOOE.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td> */}
+                            <td className="money">{budget.MOOE}</td>
                             {/*change with disbersement backend*/}
                             <td className="money">XXX,XXX.XX</td>
-                        </tr><tr className="subtotal">
+                        </tr>
+                        <tr className="subtotal">
                             <td colSpan="3">Capital Outlay (CO)</td>
-                            <td className="money">{budget.CO.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+                            {/* <td className="money">{budget.CO.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td> */}
                             {/*change with disbersement backend*/}
                             <td className="money">XXX,XXX.XX</td>
                         </tr><tr className="subtotal">
                             <td colSpan="3">Personal Expenses (PE)</td>
-                            <td className="money">{budget.PE.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+                            {/* <td className="money">{budget.PE.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td> */}
                             {/*change with disbersement backend*/}
                             <td className="money">XXX,XXX.XX</td>
                         </tr><tr className="total">
                             <td colSpan="3">TOTAL</td>
                             <td className="money">
-                                <strong>{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong>
+                                {/* <strong>{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong> */}
                             </td>
                             {/*make dynamic that adds remaining MOOE, CO, and PE*/}
                             <td className="money">XXX,XXX.XX</td>
                         </tr><tr className="ending-balance">
                             <td colSpan="3">Ending Balance</td>
                             <td className="money">
-                                <strong>{endingBalance.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong>
+                                {/* <strong>{endingBalance.toLocaleString(undefined, { minimumFractionDigits: 2 })}</strong> */}
                             </td>
                             <td></td>
                         </tr>
