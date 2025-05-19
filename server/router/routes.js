@@ -66,7 +66,7 @@ router.post('/disbursement', async (req, res) => {
 
 router.put('/budgets/update/:id', async (req, res) => {
     try {
-        const status = req.body.status
+        const status = req.body.budgetStatus
         // const remarks = req.body.remarks
         const budget = await Budget.findByIdAndUpdate(
             req.params.id,
